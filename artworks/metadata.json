@@ -1,0 +1,20 @@
+{
+  "name": "VeriArt: The Starry Night",
+  "description": "This is a verified artwork stored using VeriArt on IPFS.",
+  "image": "ipfs://Qmbafkreif7o7vr2cia7stetseg2uttyv7moioaq576npgybwuromgexkt4zy",
+  "artist": "Vincent van Gogh",
+  "attributes": [
+    {
+      "trait_type": "Medium",
+      "value": "Oil on canvas"
+    },
+    {
+      "trait_type": "Year",
+      "value": "1889"
+    },
+    {
+      "trait_type": "Condition",
+      "value": "Excellent"
+    }
+  ]
+}
