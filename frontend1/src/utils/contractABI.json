@@ -99,17 +99,6 @@
   {
     "inputs": [
       {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "ERC721NonexistentToken",
-    "type": "error"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "address",
         "name": "owner",
         "type": "address"
@@ -183,43 +172,6 @@
     "anonymous": false,
     "inputs": [
       {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "string",
-        "name": "title",
-        "type": "string"
-      },
-      {
-        "indexed": false,
-        "internalType": "string",
-        "name": "artistName",
-        "type": "string"
-      },
-      {
-        "indexed": false,
-        "internalType": "string",
-        "name": "ipfsCID",
-        "type": "string"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-      }
-    ],
-    "name": "ArtworkRegistered",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
         "indexed": false,
         "internalType": "uint256",
         "name": "_fromTokenId",
@@ -246,6 +198,38 @@
       }
     ],
     "name": "MetadataUpdate",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "org",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      }
+    ],
+    "name": "OrganizationAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "org",
+        "type": "address"
+      }
+    ],
+    "name": "OrganizationRemoved",
     "type": "event"
   },
   {
@@ -296,6 +280,24 @@
     "inputs": [
       {
         "internalType": "address",
+        "name": "org",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      }
+    ],
+    "name": "addOrganization",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
         "name": "to",
         "type": "address"
       },
@@ -308,45 +310,6 @@
     "name": "approve",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "artworks",
-    "outputs": [
-      {
-        "internalType": "string",
-        "name": "title",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "artistName",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "ipfsCID",
-        "type": "string"
-      },
-      {
-        "internalType": "uint256",
-        "name": "timestamp",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -390,52 +353,6 @@
   {
     "inputs": [
       {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "getArtworkDetails",
-    "outputs": [
-      {
-        "components": [
-          {
-            "internalType": "string",
-            "name": "title",
-            "type": "string"
-          },
-          {
-            "internalType": "string",
-            "name": "artistName",
-            "type": "string"
-          },
-          {
-            "internalType": "string",
-            "name": "ipfsCID",
-            "type": "string"
-          },
-          {
-            "internalType": "uint256",
-            "name": "timestamp",
-            "type": "uint256"
-          },
-          {
-            "internalType": "address",
-            "name": "owner",
-            "type": "address"
-          }
-        ],
-        "internalType": "struct VeriArt.Artwork",
-        "name": "",
-        "type": "tuple"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "address",
         "name": "owner",
         "type": "address"
@@ -458,8 +375,46 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "isOrg",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "name",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "orgNames",
     "outputs": [
       {
         "internalType": "string",
@@ -505,29 +460,13 @@
   {
     "inputs": [
       {
-        "internalType": "string",
-        "name": "title",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "artistName",
-        "type": "string"
-      },
-      {
-        "internalType": "string",
-        "name": "ipfsCID",
-        "type": "string"
+        "internalType": "address",
+        "name": "org",
+        "type": "address"
       }
     ],
-    "name": "registerArtwork",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "name": "removeOrganization",
+    "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -535,6 +474,30 @@
     "inputs": [],
     "name": "renounceOwnership",
     "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "tokenURI",
+        "type": "string"
+      }
+    ],
+    "name": "safeMint",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -653,6 +616,19 @@
         "internalType": "string",
         "name": "",
         "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalSupply",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",

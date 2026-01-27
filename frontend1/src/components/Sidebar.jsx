@@ -8,6 +8,7 @@ export default function Sidebar() {
     { name: "Issue Document", path: "/issue" },
     { name: "Verify Document", path: "/verify" },
     { name: "Organizations", path: "/organizations" },
+    { label: "Admin Panel", path: "/admin" },
   ];
 
   return (

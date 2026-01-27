@@ -4,6 +4,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "dev": "cd frontend1 && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -48,6 +49,7 @@
     "ethers": "^6.15.0",
     "fast-equals": "^5.3.2",
     "form-data": "^4.0.4",
+    "framer-motion": "^12.23.24",
     "get-tsconfig": "^4.13.0",
     "json-stream-stringify": "^3.1.6",
     "micro-eth-signer": "^0.14.0",

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Sidebar from "./components/Sidebar.jsx";
 import BottomBar from "./components/BottomBar.jsx";
@@ -8,9 +8,16 @@ import Dashboard from "./components/Dashboard.jsx";
 import IssueDocument from "./pages/IssueDocument.jsx";
 import VerifyDocument from "./pages/VerifyDocument.jsx";
 import Organizations from "./pages/Organizations.jsx";
+import DocumentPreview from "./pages/DocumentPreview.jsx";
+import AdminPanel from "./pages/AdminPanel";
 
 function App() {
   const [account, setAccount] = useState(null);
+
+  const location = useLocation();
+  const pathname = location.pathname;
+  // const pageName = pathname === "/" ? "Dashboard" : pathname.replace("/", "");
+  // console.log(pathname);
 
   // Connect Wallet
   const connectWallet = async () => {
@@ -42,7 +49,12 @@ function App() {
       <div className="flex flex-col flex-1 p-8">
         {/* WALLET BAR */}
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold">VeriCart Dashboard</h1>
+          <h1 className="text-3xl font-bold">
+            {pathname === "/"
+              ? "Dashboard"
+              : pathname.replace("/", "").charAt(0).toUpperCase() +
+                pathname.slice(2)}
+          </h1>
 
           <button
             onClick={connectWallet}
@@ -65,6 +77,8 @@ function App() {
             <Route path="/issue" element={<IssueDocument />} />
             <Route path="/verify" element={<VerifyDocument />} />
             <Route path="/organizations" element={<Organizations />} />
+            <Route path="/document/:tokenId" element={<DocumentPreview />} />
+            <Route path="/admin" element={<AdminPanel />} />
           </Routes>
         </div>
 
