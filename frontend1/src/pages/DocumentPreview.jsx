@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ethers } from "ethers";
 import contractABI from "../utils/contractABI.json";
-import QRgenerator from "../components/QRgenerator";
+import QrGenerator from "../components/QrGenerator";
 import { motion } from "framer-motion";
 
 const CONTRACT_ADDRESS = "YOUR_CONTRACT_ADDRESS";
@@ -202,7 +202,7 @@ export default function DocumentPreview() {
         <h3 className="text-xl font-bold text-[#e4d09c] mb-3">
           Verification QR Code
         </h3>
-        <QRgenerator cid={cid} />
+        <QrGenerator cid={cid} />
       </div>
 
       {/* RAW METADATA */}

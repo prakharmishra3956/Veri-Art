@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ethers } from "ethers";
 import contractABI from "../utils/contractABI.json";
-import QRgenerator from "../components/QRgenerator";
+import QrGenerator from "../components/QrGenerator";
 
 export default function VerifyDocument() {
   const [searchParams] = useSearchParams();
@@ -194,7 +194,7 @@ export default function VerifyDocument() {
           className="mt-6 bg-[#0f0d0a] p-6 rounded-xl border border-[#3a3527]"
         >
           <div className="flex justify-center mb-4">
-            <QRgenerator cid={cid} />
+            <QrGenerator cid={cid} />
           </div>
 
           <div className="flex justify-center mb-4">

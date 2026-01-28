@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ethers } from "ethers";
 import { uploadJSONToPinata, uploadFileToPinata } from "../utils/pinataUpload";
 import contractABI from "../utils/contractABI.json";
-import QRgenerator from "../components/QRgenerator";
+import QrGenerator from "../components/QrGenerator";
 
 const CONTRACT_ADDRESS = "YOUR_CONTRACT_ADDRESS_HERE";
 
@@ -183,7 +183,7 @@ export default function IssueDocument() {
             <span className="text-[#e4d09c] font-semibold">{tokenId}</span>
           </p>
 
-          <QRgenerator cid={mintedCID} />
+          <QrGenerator cid={mintedCID} />
         </div>
       )}
     </div>
